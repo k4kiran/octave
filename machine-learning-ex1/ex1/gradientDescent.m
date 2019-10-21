@@ -17,26 +17,15 @@ for iter = 1:num_iters
     %       of the cost function (computeCost) and gradient here.
     %
 	
-	x = X(:,2);
-	disp("value of x");
-	disp(x);
-	disp("value of theta is")
-	disp(theta);
-
-	h = theta(1) + (theta(2) * x);
+	%saving previous theta
+	temp_theta = theta;
 	
-	disp("value of h is");
-	disp(h);
-	first_theta = theta(1) - alpha((sum(h-y))/m);
-	%second_theta = theta(2) - alpha(((sum(h-y)) .* x)/m);
-	
-	theta = [first_theta;second_theta];
-	%disp(first_theta);
-	%disp(second_theta);
-
-
-
-
+	%finding gradient descent
+	for j = 1:length( theta )
+		x = X(:,j);
+		h = X * temp_theta;
+		theta(j) =	temp_theta(j) - ( alpha * sum(( h - y ).*x)) / m;
+	end
 
     % ============================================================
 
