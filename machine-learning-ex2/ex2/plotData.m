@@ -12,8 +12,16 @@ figure; hold on;
 %               examples and 'ko' for the negative examples.
 %
 
+%defining negative and positive values.
+pos =  find(y == 1);
+neg = find(y == 0);
 
 
+%plotting positive data in both columns
+plot(X(pos,1),X(pos,2),'g+','LineWidth',2,'MarkerSize',7);
+
+%plotting positive data in both columns
+plot(X(neg,1),X(neg,2),'yo','MarkerFaceColor','r','MarkerSize',7);
 
 
 
@@ -27,3 +35,4 @@ figure; hold on;
 hold off;
 
 end
+	

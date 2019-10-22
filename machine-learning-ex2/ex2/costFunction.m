@@ -20,6 +20,18 @@ grad = zeros(size(theta));
 % Note: grad should have the same dimensions as theta
 %
 
+%finding h using sigmoid function
+h = sigmoid(X*theta);
+term1 = -y' * log(h);
+term2 = (1 - y)' * log(1 - h);
+final_term = term1 - term2;
+
+%finding the cost function
+J = sum(final_term)/m;
+
+%finding the gradient
+grad_temp =  X'*(h-y);
+grad = grad_temp/m;
 
 
 
