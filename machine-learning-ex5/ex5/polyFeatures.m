@@ -15,7 +15,11 @@ X_poly = zeros(numel(X), p);
 %
 % 
 
+for i = 1:p,
 
+	%getting the square terms in columns of x_poly
+	X_poly(:,i) = X.^i;	
+end
 
 
 

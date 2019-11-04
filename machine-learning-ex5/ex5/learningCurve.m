@@ -48,21 +48,23 @@ error_val   = zeros(m, 1);
 %           % error_train(i) and error_val(i)
 %           ....
 %           
-%       end
+%       	end
 %
 
 % ---------------------- Sample Solution ----------------------
 
  for i = 1:m,
-	x_store = X(1:i, :);
-	y_store = y(1:i);
+	%getting training set
+	x_train = X(1:i, :);
+	y_train = y(1:i);
 	
+	%calculating optimized theta
+	theta = trainLinearReg(x_train,y_train,lambda);
 	
-end
-
-
-
-
+	%calculating training error and cross validation error
+	error_train(i) = linearRegCostFunction(x_train,y_train,theta,0);
+	error_val(i) = linearRegCostFunction(Xval,yval,theta,0);
+	end
 
 
 % -------------------------------------------------------------
