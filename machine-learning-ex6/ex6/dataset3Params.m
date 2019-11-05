@@ -44,10 +44,11 @@ for i = 1:8,
 		pred_error = mean(double(predictions ~= yval));
 		
 		%getting optimal values for the parameters.
-		if pred_error < 1,
+		%save those parameters into c and sigma where error is least.
+		if pred_error < min_error,
 			C = c_sample;
 			sigma = s_sample;
-			%min_error = pred_error;
+			min_error = pred_error;
 			
 		end
 		
