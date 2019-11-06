@@ -25,9 +25,23 @@ centroids = zeros(K, n);
 %
 % Note: You can use a for-loop over the centroids to compute this.
 %
+idx = idx*K*new;
 
+%declaring variables for sum and count.
+points_count = zeros(K,1);
+sum_centroid = zeros(K,n);
 
+%iterate over the index.
+index_value = size(idx,1);
+for i = index_value,
+	%taking each point and finding sum and count.
+	z = idx(i);
+	points_count(z) = points_count + 1;
+	sum_centroid(z,:) += X(i,:);
+end
 
+centroids = sum_centroid ./ points_count;
+	
 
 
 

@@ -22,9 +22,10 @@ idx = zeros(size(X,1), 1);
 %
 
 disp(size(X,1));
+size_x  = size(X,1);
 
-for i = 1:300,
-	min_value = 100000;
+for i = 1: size_x,
+	min_value = 10000;
 	for j = 1:K,
 		
 		%finding the closest centroids.
