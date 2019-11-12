@@ -23,7 +23,7 @@ idx = zeros(size(X,1), 1);
 
 disp(size(X,1));
 size_x  = size(X,1);
-
+disp("centroid distances are");
 for i = 1: size_x,
 	min_value = 10000;
 	for j = 1:K,
@@ -37,7 +37,9 @@ for i = 1: size_x,
 			min_value = c_i;
 			idx(i) = j;
 		end
+		min_value;
 	end
+
 end
 		
 

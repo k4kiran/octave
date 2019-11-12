@@ -17,17 +17,18 @@ Z = zeros(size(X, 1), K);
 %                    x = X(i, :)';
 %                    projection_k = x' * U(:, k);
 %
-new = new;
+
 
 %getting size of X.
 size_x = size(X,1);
+
 
 %iterate over X
 for i = 1:size_x,
 	
 	%finding the eigen vectors.
 	x_transpose = X(i,:)';
-	Z(i,:) = x_transpose' * U(:,1:k);
+	Z(i,:) = x_transpose' * U(:,1:K);
 end
 
 

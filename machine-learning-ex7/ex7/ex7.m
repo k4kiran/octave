@@ -55,6 +55,8 @@ fprintf('\nComputing centroids means.\n\n');
 %  Compute means based on the closest centroids found in the previous part.
 centroids = computeCentroids(X, idx, K);
 
+input("pausing execution manually after computecentroids")	
+
 fprintf('Centroids computed after initial finding of closest centroids: \n')
 fprintf(' %f %f \n' , centroids');
 fprintf('\n(the centroids should be\n');
@@ -106,7 +108,8 @@ pause;
 fprintf('\nRunning K-Means clustering on pixels from an image.\n\n');
 
 %  Load an image of a bird
-A = double(imread('bird_small.png'));
+%A = double(imread('bird_small.png'));
+A = double(imread('Catpixelated.jpg'));
 
 % If imread does not work for you, you can try instead
 %   load ('bird_small.mat');
@@ -155,6 +158,7 @@ idx = findClosestCentroids(X, centroids);
 % (specified by its index in idx) to the centroid value
 X_recovered = centroids(idx,:);
 
+	
 % Reshape the recovered image into proper dimensions
 X_recovered = reshape(X_recovered, img_size(1), img_size(2), 3);
 
