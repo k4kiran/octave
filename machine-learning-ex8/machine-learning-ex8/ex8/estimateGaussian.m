@@ -21,8 +21,13 @@ sigma2 = zeros(n, 1);
 %               should contain variance of the i-th feature.
 %
 
+%finding the mean
+mu_temp = (1 / m) * sum(X);
+mu = mu_temp';
 
-
+%finding the variance
+sigma2_temp = (1 / m) * sum((X - mu_temp).^2);
+sigma2 = sigma2_temp';
 
 
 
