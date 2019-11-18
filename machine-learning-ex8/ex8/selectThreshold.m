@@ -24,14 +24,26 @@ for epsilon = min(pval):stepsize:max(pval)
     %       of 0's and 1's of the outlier predictions
 
 
-    
+    %getting the  binary vector.
     predictions = (pval < epsilon);
-    tp = sum((predictions == 1) & (yval == 1));
-    fp = sum((predictions == 1) & (yval == 0));
-    fn = sum((predictions == 0) & (yval == 1));
-    prec = tp / (tp + fp);
-    rec = tp / (tp + fn);
-    F1 = 2 * prec * rec /(prec + rec);
+	
+	%finding the true positives.
+    true_p = sum((predictions == 1) & (yval == 1));
+	
+	%finding the false points.
+    false_p = sum((predictions == 1) & (yval == 0));
+	
+	%finding the false neagtives.
+    false_n = sum((predictions == 0) & (yval == 1));
+	
+	%finding the precision value.
+    precision = true_p / (true_p + false_p);
+	
+	%finding the recall value.
+    recall = true_p / (true_p + false_n);
+	
+	%computing the f1 score from precision and recall.
+    F1 = 2 * precision * recall /(precision + recall);
 
 
 

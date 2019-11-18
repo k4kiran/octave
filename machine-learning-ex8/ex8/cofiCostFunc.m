@@ -40,25 +40,25 @@ Theta_grad = zeros(size(Theta));
 %                     partial derivatives w.r.t. to each element of Theta
 %
 
+%computing the cost function
+h = X*Theta';
+term1 = R.* (h - Y).^2;
+J = 1/2 * sum(sum((term1)));
 
-J = 1/2 * sum(sum((R.* ((X*Theta') - Y)).^2));
+%finding the x gradient value without regularization.
 X_grad = (R .* (X*Theta' - Y)) * Theta;
+
+%finding the theta gradient value without regularization.
 Theta_grad = (R .* (X*Theta' - Y))' * X;
 
-% With regularization
+% cost function With regularization
 J = J + lambda/2 * (sum(sum(Theta.^2)) + sum(sum(X.^2)));
+
+%finding the x gradient value with regularization.
 X_grad = X_grad + lambda * X;
+
+%finding the theta gradient value with regularization.
 Theta_grad = Theta_grad + lambda * Theta;
-
-
-
-
-
-
-
-
-
-
 
 
 
